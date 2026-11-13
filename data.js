@@ -4,6 +4,7 @@ const PRODUCTS=[{"id": 102, "n": "Classic White Cotton Kurta Pyjama", "c": "men"
 try {
  const extra=JSON.parse(localStorage.getItem('vl_extraProducts')||'[]');
  const removed=JSON.parse(localStorage.getItem('vl_removedProducts')||'[]');
+ const overrides=JSON.parse(localStorage.getItem('vl_productOverrides')||'{}');
  extra.forEach(p=>{if(!PRODUCTS.some(x=>x.id===p.id))PRODUCTS.push(p)});
- for(let i=PRODUCTS.length-1;i>=0;i--)if(removed.includes(PRODUCTS[i].id))PRODUCTS.splice(i,1);
+ for(let i=PRODUCTS.length-1;i>=0;i--){const id=PRODUCTS[i].id;if(removed.includes(id))PRODUCTS.splice(i,1);else if(overrides[id])Object.assign(PRODUCTS[i],overrides[id]);}
 } catch(e) {}

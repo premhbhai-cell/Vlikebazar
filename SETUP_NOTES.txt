@@ -1,0 +1,13 @@
+VLIKE BAZAR - UPDATE NOTES
+
+Added in this update:
+- Home page job-vacancy call-to-action banner.
+- Public job application form on Vlike Career with candidate details and PDF/DOC/DOCX resume upload (2 MB limit).
+- Application details are saved in the browser's Vlike admin Applications section; resume can be downloaded there.
+- After submission, WhatsApp opens with the candidate details and resume filename. The applicant must attach the resume manually in WhatsApp and press Send. Browsers/WhatsApp do not allow a website to silently attach and send a local file.
+- Admin application status update and delete controls.
+- Admin product edit (name, selling price, MRP, image URL) and delete controls; product additions/edits/deletions are reflected on storefront after refresh.
+- Admin order status controls, member delete control and order records synchronized with the portal's storage key.
+
+IMPORTANT PRODUCTION LIMITATION:
+This source project is a static HTML/CSS/JavaScript website. Its current admin, members, products, orders, applications and uploaded resumes use browser localStorage. This is browser/device-local storage, not a shared server database. A public applicant submitting from another phone/computer will NOT automatically appear in the owner's browser admin panel, and browser storage can be cleared. For a real live business deployment, connect a backend (server-side admin authentication, database, and secure resume file storage) and configure a WhatsApp Business/API or an approved upload/notification workflow. Do not treat the current client-side owner login as production-secure.
